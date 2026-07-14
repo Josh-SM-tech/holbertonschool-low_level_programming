@@ -7,7 +7,7 @@
 int main(void)
 {
     int choice = -1;
-    int a, b;
+    double a, b;
 
     while (choice != 0)
     {
@@ -34,34 +34,53 @@ int main(void)
         else if (choice == 1)
         {
             printf("A: ");
-            if (scanf("%d", &a) != 1)
+            if (scanf("%lf", &a) != 1)
                 break;
             printf("B: ");
-            if (scanf("%d", &b) != 1)
+            if (scanf("%lf", &b) != 1)
                 break;
-            printf("Result: %d\n", a + b);
+            printf("Result: %g\n", a + b);
         }
         /* Option 2: Subtraction */
         else if (choice == 2)
         {
             printf("A: ");
-            if (scanf("%d", &a) != 1)
+            if (scanf("%lf", &a) != 1)
                 break;
             printf("B: ");
-            if (scanf("%d", &b) != 1)
+            if (scanf("%lf", &b) != 1)
                 break;
-            printf("Result: %d\n", a - b);
+            printf("Result: %g\n", a - b);
         }
         /* Option 3: Multiplication */
         else if (choice == 3)
         {
             printf("A: ");
-            if (scanf("%d", &a) != 1)
+            if (scanf("%lf", &a) != 1)
                 break;
             printf("B: ");
-            if (scanf("%d", &b) != 1)
+            if (scanf("%lf", &b) != 1)
                 break;
-            printf("Result: %d\n", a * b);
+            printf("Result: %g\n", a * b);
+        }
+        /* Option 4: Division */
+        else if (choice == 4)
+        {
+            printf("A: ");
+            if (scanf("%lf", &a) != 1)
+                break;
+            printf("B: ");
+            if (scanf("%lf", &b) != 1)
+                break;
+
+            if (b == 0)
+            {
+                printf("Error: division by zero\n");
+            }
+            else
+            {
+                printf("Result: %g\n", a / b);
+            }
         }
         /* If the choice is not 0, and not within the valid range (1-4) */
         else if (choice < 1 || choice > 4)
