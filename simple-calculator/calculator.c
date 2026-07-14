@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point for the simple calculator with addition
+ * main - Entry point for the simple calculator
  * Return: Always 0
  */
 int main(void)
@@ -30,7 +30,7 @@ int main(void)
         {
             printf("Bye!\n");
         }
-        /* If addition is chosen */
+        /* Option 1: Addition */
         else if (choice == 1)
         {
             printf("A: ");
@@ -40,6 +40,28 @@ int main(void)
             if (scanf("%d", &b) != 1)
                 break;
             printf("Result: %d\n", a + b);
+        }
+        /* Option 2: Subtraction */
+        else if (choice == 2)
+        {
+            printf("A: ");
+            if (scanf("%d", &a) != 1)
+                break;
+            printf("B: ");
+            if (scanf("%d", &b) != 1)
+                break;
+            printf("Result: %d\n", a - b);
+        }
+        /* Option 3: Multiplication */
+        else if (choice == 3)
+        {
+            printf("A: ");
+            if (scanf("%d", &a) != 1)
+                break;
+            printf("B: ");
+            if (scanf("%d", &b) != 1)
+                break;
+            printf("Result: %d\n", a * b);
         }
         /* If the choice is not 0, and not within the valid range (1-4) */
         else if (choice < 1 || choice > 4)
