@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - Entry point for the simple calculator
+ * main - Entry point for the simple calculator with addition
  * Return: Always 0
  */
 int main(void)
 {
     int choice = -1;
+    int a, b;
 
     while (choice != 0)
     {
@@ -28,6 +29,17 @@ int main(void)
         if (choice == 0)
         {
             printf("Bye!\n");
+        }
+        /* If addition is chosen */
+        else if (choice == 1)
+        {
+            printf("A: ");
+            if (scanf("%d", &a) != 1)
+                break;
+            printf("B: ");
+            if (scanf("%d", &b) != 1)
+                break;
+            printf("Result: %d\n", a + b);
         }
         /* If the choice is not 0, and not within the valid range (1-4) */
         else if (choice < 1 || choice > 4)
