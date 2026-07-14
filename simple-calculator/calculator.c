@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point for the simple calculator skeleton
+ * main - Entry point for the simple calculator
  * Return: Always 0
  */
 int main(void)
@@ -24,12 +24,17 @@ int main(void)
             break;
         }
 
+        /* Check if choice is the quit option */
         if (choice == 0)
         {
             printf("Bye!\n");
+        }
+        /* If the choice is not 0, and not within the valid range (1-4) */
+        else if (choice < 1 || choice > 4)
+        {
+            printf("Invalid choice\n");
         }
     }
 
     return (0);
 }
-
