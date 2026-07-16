@@ -12,15 +12,21 @@ char *_strcat(char *dest, char *src)
 	int i = 0;
 	int j = 0;
 
-	/* Find the end of the dest string */
+	/* 1. Move 'i' to the end of the dest string (find the '\0' */
 	while (dest[i] != '\0')
+	{
+		i++;
+	}
+
+	/* 2. Append the src string to dest starting at index 'i' */
+	while (src[j] != '\0')
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
 	}
 
-	/* Add the terminating null byte */
+	/* 3. Add the terminating null byte at the new end */
 	dest[i] = '\0';
 
 	return (dest);
