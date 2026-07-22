@@ -2,41 +2,29 @@
 #include <stdlib.h>
 
 /**
- * _realloc - Reallocates a memory block using malloc and free.
- * @ptr: Pointer to the memory previously allocated with malloc.
- * @old_size: Size in bytes of allocated space for ptr.
- * @new_size: New size in bytes of memory block.
+ * array_range - Creates an array of integers containing values from min to max.
+ * @min: The minimum/starting integer value.
+ * @max: The maximum/ending integer value.
  *
- * Return: Pointer to reallocated memory block, or NULL on failure/free.
+ * Return: Pointer to the newly created array, or NULL if min > max
+ *         or if malloc fails.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+int *array_range(int min, int max)
 {
-	char *new_ptr, *old_ptr;
-	unsigned int i, limit;
+	int *array;
+	int i, size;
 
-	if (new_size == old_size)
-		return (ptr);
-
-	if (ptr == NULL)
-		return (malloc(new_size));
-
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
-
-	new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
+	if (min > max)
 		return (NULL);
 
-	old_ptr = ptr;
-	limit = (old_size < new_size) ? old_size : new_size;
+	size = max - min + 1;
 
-	for (i = 0; i < limit; i++)
-		new_ptr[i] = old_ptr[i];
+	array = malloc(sizeof(int) * size);
+	if (array == NULL)
+		return (NULL);
 
-	free(ptr);
+	for (i = 0; i < size; i++)
+		array[i] = min + i;
 
-	return ((void *)new_ptr);
+	return (array);
 }
